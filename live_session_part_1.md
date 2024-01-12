@@ -56,7 +56,7 @@ arr.[]=(2, 5)
 
 ## Keeping this in mind:
 
-> Ruby abstracts a lot fo details out of the code. With syntactical sugar we get a lot of lovely looking and elegant code.
+> Ruby abstracts a lot of details out of the code. With syntactical sugar we get a lot of lovely looking and elegant code.
 > But, remember this while reading and writing Ruby code, remember that a lot of these operations you're performing may be methods in disguise.
 <br>
 
