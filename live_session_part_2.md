@@ -30,6 +30,8 @@ puts method_1 # This will output: 10
 a = method_1  # We can also initialize an `a` variable and assign it to what the method return
 puts a        # This will output: 10
 ```
+<br>
+
 2. Methods **_do not_** have access to variables in the outer scope unless passed as arguments to the method.
 _Example:_
 ```ruby
@@ -60,12 +62,47 @@ method_1(a) # This will output: 10
   Mutating means the method will directly reference and modify the calling object.
 2. _Non-mutating_
   Non-Mutating means the methods will either:
-  1. Creates and returns a new object with a new space in memory </br>
+  - Creates and returns a new object with a new space in memory </br>
   (This will happen if the result of the method returns a mutable object or if the method is acting upon an immutable calling object)
-  2. Returns an existing object in memory </br>
+  - Returns an existing object in memory </br>
   (This will happen if the result of the method is an immutable object)
 <br>
 
-#### Why does it work like this though?
+_Non-mutating example:_
+```ruby
+str = "hello"
 
+def method(param)
+  param + " world" # Addition is non-mutating, it creates and returns a new object in memory
+end 
 
+puts method(str) #=> hello world
+puts str #=> hello
+```
+> The above example is non-mutating. `+` does not mutate the caller object. </br>
+> Remember, `param + " world"` is the same as saying: `param.+(" world")`
+<br>
+
+_Mutating example:_
+```ruby
+str = "hello"
+
+def method(param)
+  param << " world" # `<<` is mutating, it directly modifies the caller object
+end 
+
+puts method(str) #=> hello world
+puts str #=> hello world
+```
+> The above example is mutating. `<<` does mutate the caller object. </br>
+> Remember, `param << " world"` is the same as saying: `param.<<(" world")`
+<br>
+
+## Side Effect or Return: Choose One
+#### Definitions:
+1. _Side Effect_
+> A side effect is a change that's been made to your code outside of the method scope you're in.
+> Examples of side effects include: Mutating an object, changing data in your program, and changing the display of the terminal
+> This does **NOT** include returning a new object.
+2. _Meaningful Return Values_
+> When a method returns a new object that you use with reason and intent. This is **NOT** mutating a caller object or an argument.
