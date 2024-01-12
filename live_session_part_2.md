@@ -60,6 +60,7 @@ method_1(a) # This will output: 10
 #### Definitions:
 1. _Mutating_
   Mutating means the method will directly reference and modify the calling object.
+
 2. _Non-mutating_
   Non-Mutating means the methods will either:
   - Creates and returns a new object with a new space in memory </br>
@@ -104,5 +105,16 @@ puts str #=> hello world
 > A side effect is a change that's been made to your code outside of the method scope you're in.
 > Examples of side effects include: Mutating an object, changing data in your program, and changing the display of the terminal
 > This does **NOT** include returning a new object.
+
 2. _Meaningful Return Values_
 > When a method returns a new object that you use with reason and intent. This is **NOT** mutating a caller object or an argument.
+
+<br>
+
+Methods you create should either produce a/some side-effect(s) or return a meaningful value. Methods should avoid doing both. 
+<br>
+
+_Why should we avoid doing both?_
+> Because we want to separate concerns. Making sure our method is doing one thing will help us predict what a method will do and what it's intention is. When we get our methods to do multiple different things in different areas we often times are making our app more dependent on that method. If the method breaks there's a good chance that many of the operations crammed in it will break too. Not to mention methods are generally easier for us to understand if we keep them short and concise in their operations.
+
+<br>
