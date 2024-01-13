@@ -1,5 +1,5 @@
 # Launch School's Live Sessions: Part 2
-> [Launch School Live Session: Beginning Ruby](https://launchschool.medium.com/live-session-beginning-ruby-part-2-f87d821ce926)
+> [Launch School Live Session: Beginning Ruby Part 2](https://launchschool.medium.com/live-session-beginning-ruby-part-2-f87d821ce926)
 
 <br>
 
@@ -117,4 +117,4 @@ Methods you create should either produce a/some side-effect(s) or return a meani
 _Why should we avoid doing both?_
 > Because we want to separate concerns. Making sure our method is doing one thing will help us predict what a method will do and what it's intention is. When we get our methods to do multiple different things in different areas we often times are making our app more dependent on that method. If the method breaks there's a good chance that many of the operations crammed in it will break too. Not to mention methods are generally easier for us to understand if we keep them short and concise in their operations.
 
-<br>
+
