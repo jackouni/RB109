@@ -1,4 +1,4 @@
-# RB101/RB109 MEGA-LIST
+bbb# RB101/RB109 MEGA-LIST
 > This is a file where I will be collecting as many lessons and important material from RB101. </br>
 >
 > **My goal with this document:**
@@ -11,79 +11,54 @@
 
 ## Table Of Contents:
 
-### Version Control
-  - #### Defining Terms
-  - #### Git   
-  - #### GitHub
---------------------------------------------------------------------------------------------------------- 
-### Ruby Style
----------------------------------------------------------------------------------------------------------
-### Truthy & Falsy Values
-  - #### Defining Terms
-  - #### `true` & `false` V.S. Truthy & Falsy  
----------------------------------------------------------------------------------------------------------
-### Pre-Coding Processes
-  - #### Defining Terms  
-  - #### Pseudocode
-  - #### Flowcharts
----------------------------------------------------------------------------------------------------------
-### Ruby Version Managers
----------------------------------------------------------------------------------------------------------
-### Rubocop
-  - #### Defining Terms
-  - #### What is Rubocop?
----------------------------------------------------------------------------------------------------------
-### Debugging
----------------------------------------------------------------------------------------------------------
-### Operator Precedence
-  - #### Defining Terms
----------------------------------------------------------------------------------------------------------
-### Variables
-  - #### Defining Terms
-  - #### What are they really?
-  - #### Local Variables
-    - Initializing
-    - Scoping Rules
-  - #### Global Variables
-    - Intializing
-    - Scoping Rules
----------------------------------------------------------------------------------------------------------
-### Constants
-  - #### Defining Terms
-  - #### Scoping Rules
----------------------------------------------------------------------------------------------------------
-### Methods
-  - #### Defining Terms
-  - #### Defining a Method
-  - #### Invocation
-  - #### Naming Methods
-  - #### Scoping Rules
----------------------------------------------------------------------------------------------------------
-### Blocks
-  - #### Defining Terms
-  - #### 'Defining' Blocks
-  - #### Invoking Blocks
-  - #### Scoping Rules
-  - #### Block Variables
-  - #### Variable Shadowing
----------------------------------------------------------------------------------------------------------
-### Coding Tips  
-  - #### Naming Tips
-      - For Variables
-      - For Methods  
----------------------------------------------------------------------------------------------------------
-### How Objects Are Passed Around
-  - #### Defining Terms
-  - #### Pass By Value
-  - #### Pass By Reference
-  - #### Call by Sharing
-  - #### Summary  
----------------------------------------------------------------------------------------------------------
-### Mutating & Non-Mutating Methods
-  - #### Defining Terms
-  - #### Naming Conventions
-  - #### What's Happening Under the Hood?  
----------------------------------------------------------------------------------------------------------
+1. ### Ruby Style
+
+2. ### Truthy & Falsy Values
+    - #### Defining Terms
+    - #### `true` & `false` V.S. Truthy & Falsy  
+    - #### Logical & Comparison Operators
+      - Short Circuiting
+
+3. ### Pre-Coding Processes
+    - #### Defining Terms  
+    - #### Pseudocode
+    - #### Flowcharts
+
+4. ### Ruby Version Managers
+
+5. ### Rubocop
+    - #### Defining Terms
+    - #### What is Rubocop?
+
+6. ### Debugging
+
+7. ### Operator Precedence
+    - #### Defining Terms
+
+8. ### Variables
+    - Variables as pointers
+    - Variable shadowing
+    - Local variable scope in relation to method definitions
+    - Local variable scope in relation to blocks, including nested blocks and peer blocks
+    - Scope of constants
+    - Mutating values vs. reassigning variables
+
+9. ### Methods:
+    - Method definition vs. method invocation
+    - Passing and using blocks with methods
+    - Parameters vs. arguments
+    - Default parameters
+    - Implicit vs. explicit return values
+    - Mutating vs. non-mutating methods
+    - Using method return values as arguments to other methods
+
+10. ### Mutable vs. immutable data types
+11. ### Output vs. return
+12. ### How Objects Are Passed Around
+      - Pass By Reference
+      - Pass By Value
+      - Call By Sharing
+
 <br>
 <br>
 <br>
@@ -91,3 +66,12 @@
 ---------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
+<br>
+
+# Ruby Style
+In Ruby there are styling conventions that are followed to maintain better readability and consistency across developer's appilications. Here are some of the general style rules for Ruby that most developers follow:
+- For blocks, if the code can be short and concise make it a one-liner using `{ }`. Otherwise use a `do/end`.
+- Always use _snake_case_ for nameing variables
+- Always use _UPPERCASE_ for naming constants
+- Always use _CamelCase_ for naming Classes
+- Indentations with tabs is 2 spaces
