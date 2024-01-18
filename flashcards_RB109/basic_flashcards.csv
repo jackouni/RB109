@@ -1,0 +1,2 @@
+'hello' == true ; false 
+nil == false ; false

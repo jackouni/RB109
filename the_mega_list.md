@@ -16,48 +16,47 @@
 2. ### Truthy & Falsy Values ☯️
     - #### Defining Terms 📖
     - #### `true` & `false` 🆚 Truthy & Falsy  
-    - #### Logical & Comparison Operators 🧠
-      - Short Circuiting ⚡️
+    - #### Logical & Comparison Operators 
+      - Short Circuiting 
 
 3. ### Pre-Coding Processes 🛠️
     - #### Defining Terms 📖  
-    - #### Pseudocode
-    - #### Flowcharts
+    - #### Pseudocode 
+    - #### Flowcharts 
 
-4. ### Ruby Version Managers
-
-5. ### Rubocop
+5. ### Rubocop 🚓
     - #### Defining Terms 📖
-    - #### What is Rubocop?
+    - #### Using Rubocop 
 
-6. ### Debugging
+6. ### Debugging 🐛
 
-7. ### Operator Precedence
+7. ### Operator Precedence 🂾
     - #### Defining Terms 📖
 
-8. ### Variables
-    - Variables as pointers
-    - Variable shadowing
-    - Local variable scope in relation to method definitions
-    - Local variable scope in relation to blocks, including nested blocks and peer blocks
-    - Scope of constants
-    - Mutating values vs. reassigning variables
+8. ### Variables 🎳
+    - #### Defining Terms 📖
+    - #### Variables as pointers 
+    - #### Variable shadowing 
+    - #### Local variable scope in method definitions
+    - #### Local Variable Scope in Blocks (including nested blocks and peer blocks)
+    - #### Scope of Constants
+    - #### Mutating Values 🆚 Reassigning Variables
 
 9. ### Methods:
-    - Method definition vs. method invocation
-    - Passing and using blocks with methods
-    - Parameters vs. arguments
-    - Default parameters
-    - Implicit vs. explicit return values
-    - Mutating vs. non-mutating methods
-    - Using method return values as arguments to other methods
+    - #### Method Definition 🆚 Method Invocation
+    - #### Passing and Using Blocks with Methods
+    - #### Parameters 🆚 Aarguments
+    - #### Default parameters
+    - #### Implicit 🆚 Explicit return values
+    - #### Mutating 🆚 Non-mutating methods
+    - #### Using method return values as arguments to other methods
 
-10. ### Mutable vs. immutable data types
-11. ### Output vs. return
-12. ### How Objects Are Passed Around
-      - Pass By Reference
-      - Pass By Value
-      - Call By Sharing
+10. ### Mutable 🆚 Immutable Data Types
+11. ### Output 🆚 return
+12. ### How Objects Are Passed Around 📬
+      - #### Pass By Reference 
+      - #### Pass By Value 
+      - #### Call By Sharing 
 
 <br>
 <br>
@@ -161,7 +160,7 @@ In Ruby there are styling conventions that are followed to maintain better reada
 
 <br>
 
-### Logical & Comparison Operators 🧠
+### Logical & Comparison Operators 
   Logical and comparison operators are super important in control flow and conditional statements in programming in Ruby (and in general). </br>
   Comparison operators are used to compare two operands against eachother and return a boolean based on that comparison. </br>
   Logical operators are used to combine multiple expressions and determine how the expressions are evaluated, resulting in a boolean. These are used in more complex conditional statements.</br>
@@ -201,7 +200,7 @@ In Ruby there are styling conventions that are followed to maintain better reada
   >
   > <br>
   > 
-  > #### **Short Circuiting** ⚡️
+#### **Short Circuiting** ⚡️
   > As mentioned above, binary logical operators like `&&` and `||` will evaluate objects from left to right. </br>
   > The concept of ***short circuiting*** is when our expression with a logical operator doesn't evaluate the right operand in the expression. </br>
   > 
@@ -242,9 +241,234 @@ In Ruby there are styling conventions that are followed to maintain better reada
 ***Flowchart :*** 
   > A visual illustration that helps map out the flow of an application using geometric shapes and lines.
 
+<br>
 
-  
+---------------------------------------------------------------------------------------------------------
+
+### Pseudocode 💻
+  > The concept of pseudocode is to help abstract out the details in syntax to help focus efforts towards the control flow and bigger picture overview of an application. </br>
+  > <br>
+  >
+  > Some pseudocode makes use of some syntax, while other pseudocode is purely English.
+  > The level of abstraction you use with your pseduocode will highly depend. 
+  > Generally, we can start by writing out our program in mostly-English pseudocode and on another iteration of the problem in pseudocode we can add some syntax to it. </br>
+  > <br>
+  >
+  > When writing or typing out pseudocode we can either choose to include the details of a method or set of operations or just label them as a set of operations that we can later write pseudocode for. Depending on what 'layer' of the program we are on we can choose whether we want to include all the steps of a certain set of operations or not.
+  > <br>
+  > <br>
+  > 
+  > _Some pseudocode may look like:_
+  > ```
+  > initialize `counter` variable to `0`
+  > initialize an `array` to `[3, 4, 5]`
+  > initialize `new array` to `[]``
+  >
+  > loop until counter is equal to 3
+  >   push `array[counter]` times 10, to `new array`
+  >   increment counter by 1
+  >
+  > return `new array`
+  > ```
+  > If we wrote a more formal and less abstracted pseudocode...
+  > _It might look like this:_
+  > ```
+  > counter = 0
+  > array = [3, 4, 5]
+  > new_array = []
+  > 
+  > START LOOP
+  > BREAK IF counter is equal to 3
+  >   new_array push ( array[counter] * 10 )
+  >   counter = counter + 1
+  > END LOOP
+  >
+  > return new_array
+  > ```
 
 <br>
 
+---------------------------------------------------------------------------------------------------------
+
+<br>
+
+### Flowcharts 📊
+  > The concept of a flowchart is similar to that of pseudocode: it's to help abstract out the details in syntax to help focus efforts towards the control flow and bigger picture overview of an application.
+  >
+  > <p align='center'>
+  >   <img src='images/flowchart_example.png' width='200'>
+  > </p>
+  > 
+  > And again, making these flowcharts we can either choose to include the details of a method or set of operations or just label them as a set of operations that we can later map out. Depending on what 'layer' of the program we are on we can choose whether we want to include all the steps of a certain set of operations or not. </br>
+  > _For example:_
+  > <p align='center'>
+  >   <img src='images/flowchart_example_2.png' width='200'>
+  > </p>
+  > <br>
+  > Here we've abstracted some sets of operations out of our program to get a better high-level overview of the program. We can make separate flowcharts for these hidden operations later if we want to.
+
+<br>
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+<br>
+
+# Rubocop 🚓
+### Defining Terms 📖
+***Style/Code Formatter :*** 
+  > A _style formatter_ is a tool that will automatically enforce style rules and conventions on your code. </br>
+  > <br>
+  > These rules can include:</br>
+  > - Number of spaces for tab indentations
+  > - Naming conventions
+  > - Line Spacing
+  > - Comment formatting </br>
+
+***Code Linter :*** 
+  > A _code linter_ is a tool that inspects your code for potential logical errors, poor readability, style conventions and error-prone code, and alerts you to these errors. </br>
+  > <br>
+  > These can include: </br>
+  > - Variable shadowings
+  > - Unused Local Variables
+  > - Trailing whitespaces
+  > - Not Following Naming Conventions
+  > - Syntax Errors
+  >
+  > A _code linter_ will usually alert you to these problems through highlighting or reporting the errors to you in your terminal. </>
+
+***Static Code Analyzer :*** 
+  > Is a tool that inspects your code for potential logical errors as well as style errors, without executing the code (hence the 'static' part). Static Code Analyzers are very similar to code linters, but go more in depth and take more aspects of your program into account, like the structure, security, styling, and potential logical errors.</br>
+
+***Rubocop :*** 
+  > Is a static code analyzer used specifically in Ruby applications. </br>
+
+<br>
+
+---------------------------------------------------------------------------------------------------------
+
+### Using Rubocop
+  > Once the Rubcop gem is installed, you can then use the `rubocop` command in the terminal. This means you can now use `rubocop <file.rb>` and have Rubocop analyze your code for you. </br>
+  > <br>
+  > Rubocop has _**"offenses"**_. These offenses are things that Rubocop has found in your code that it deems to be a potential problem or error-prone. </br>
+  > Rubocop has a lot of different offenses that are categorized even further into different _**"departments"**_, departments being different categories of offenses. </br>
+  > <br>
+  >
+  > Let's say we have a file names `tests.rb` that just has this in it:
+  >```ruby
+  >Kernel.puts ("Hello world")
+  >```
+  >If we run `rubocop tests.rb` this is the message we'll recieve:
+  >```
+  >  Inspecting 1 file
+  >W
+  >
+  >Offenses:
+  >
+  >tests.rb:1:1: C: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+  >Kernel.puts ("Hello world")
+  >^
+  >tests.rb:1:12: W: [Correctable] Lint/ParenthesesAsGroupedExpression: ("Hello world") interpreted as grouped expression.
+  >Kernel.puts ("Hello world")
+  >          ^
+  >tests.rb:1:14: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation >or special symbols.
+  >Kernel.puts ("Hello world")
+  >            ^^^^^^^^^^^^^
+  >tests.rb:1:28: C: [Correctable] Layout/TrailingEmptyLines: Final newline missing.
+  >Kernel.puts ("Hello world")
+  >                         
+  >
+  >1 file inspected, 4 offenses detected, 4 offenses autocorrectable
+  >```
+  > As you can see, rubocop has given us 4 offenses to fix </br>
+  > Rubocop has always given our offenses a type too. The `C`s stand for 'convention', this means we've broken a style convention in Ruby and `W`s stand for 'warning' which means our code doesn't cause and error, but is something to look out for as it could potentially cause an error in the future. </br>
+  > <br> 
+  > Following the stack trace it gives us to where the offense was detected and the offense type, it tells us what the offense itself is and on the next line points us to where the offense was detected.</br>
+  > <br>
+  > Let's make some changes to our file:
+  > ```ruby
+  > Kernel.puts('Hello world')
+  > 
+  > ```
+  > And then we run rubocop on our file, `rubocop tests.rb`:
+  >```
+  >  Inspecting 1 file
+  >C
+  >
+  >Offenses:
+  >
+  >tests.rb:1:1: C: [Correctable] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+  >Kernel.puts('Hello world')
+  >^
+  >
+  >1 file inspected, 1 offense detected, 1 offense autocorrectable
+  >```
+  > As you can see, we've corrected most of our offenses. Not all offenses displayed by Rubocop will always be worth fixing, and what offenses you decided to fix will be up to you. In this case, Rubocop is just giving us a 'Convention' offense, so we may just decide to ignore it 🤷‍♂️ </br>
+  > <br>
+  > We can also configure Rubocop to enforce certain offenses, making it more or less strict and more customized to our needs by including a `.yml` file named: `.rubocop.yml`. 
+
+<br>
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+<br>
+
+# Debugging 🐛
+  > Debugging is the process of fixing errors in your code. </br>
+  > <br> 
+  > **The mindset to debugging...** </br>
+  > Most of a software engineers job isn't coding. It's debugging. </br>
+  ><br>
+  > Debugging takes time, patience and an engineers-mindset. This means having the right temperment for it. This temperment should be a solution-focused approach to problems that is patience and takes its time. </br>When problems arise, we don't feel good about it, it's difficult and it's not the way we generally want things to go. If you let negative emotions eat you up in the process of debugging, you're going to have a hard time mastering the craft. </br>
+  > <br>
+  > If you're going to hone the art of debugging, you need to approach problems logically and systematically, wtih a patient temperment.</br> 
+  > _Like a ninja_ - you don't attack the problem/threat in a fury or emotion. You want to approach it cool, controlled and with intention. </br>
+  > <br>
+  > _**Here are some tricks and steps for debugging an application:**_ </br>
+  > 1. ***Reproduce the Error*** </br>
+  >  You generally want to be able to reproduce the error on your own local environment first. </br>
+  >  This is done so that you can work on it, but also by doing so allows you to better understand how the error is encountered in the first place, thus furthering your understanding of the error itself and the potential solution for it.
+  > <br>
+  >
+  > 2. ***Determine Boundaries*** </br>
+  >    Determine the boundary/scope of your error. This means playing around with the code and containing the error to a smaller > scope, variable or class. You can do this by removing certain parts of your code like variables or method calls and seeing >if the error still arises. </br> </br>
+  >    For example, let's say we get an error from an instance method in our code: </br>
+  >        ```ruby
+  >        my_obj.my_method(my_var)
+  >        ```
+  >    If we wanted to figure out the boundaries of the error, we want to break down the different parts involved: </br>
+  >    - my_obj
+  >    - my_method
+  >    - my_var </br>
+  >
+  >    Maybe we try accessing `my_obj` first and seeing if the error is reproduced: </br>
+  >    `p my_obj` </br>
+  >    Then we could try seeing if it's the `my_method` being called by `my_obj` that produces the error, or we could try > calling   `my_method` on a different instance and seeing if it produces the error: </br>
+  >     `my_obj.my_method()` </br>
+  >     `other_obj.my_method()` </br>
+  >     We could also try accessing `my_var` and seeing if the error is reproduced: </br>
+  >    `p my_var` </br>
+  >     <br>
+  >    These are all just ways to see where the error is contained to. If we only got an error with calling `my_var` then we >could assume it's a problem with the variable `my_var`, otherwise it could be a problem with the method itself of the >`my_obj` object. </br> 
+  >
+  > 3. ***Trace the Code*** </br>
+  >   Trace the code. This means following your code, part by part, method call by method call to scope out where an error might've occured. Along a set of operations, at what specific step did the error occur?</br>
+  > <br>
+  > 4. ***Understand the Problem Well***
+  >  This is where you do some tweaking to your code. Now that we've narrowed down the scope/boundary of the problem and we've traced the code to the line that is causing the problem, let's understand it fully. This means taking each of the individual pieces and seeing what they return and what they do. </br>
+  > <br>
+  > 5. ***Implement a Fix*** </br>
+  > Now, implement a fix to the bug. </br>
+  > <br>
+  > 6. ***Test Your Fix*** </br>
+  > Test out your fix and see if it gives you the results you want without the error.
+  > <br>
+
+<br>
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+<br>
 
