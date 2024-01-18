@@ -472,3 +472,152 @@ In Ruby there are styling conventions that are followed to maintain better reada
 
 <br>
 
+# Operator Precedence 🂾
+Operator precedence refers to the order in which operators in an expression will be evaluated. </br>
+
+### Defining Terms 📖
+***Expression :*** 
+  > An expression is any piece of code that can be evaluated down to a single return value. This includes almost everything in Ruby </br>
+  > Conditionals, objects, logical expressions, variables, methods, loops, arithmetic operations and etc </br>
+  > Are all things that could techincally be considered expressions. </br>
+  > In some programming languages there are constructs that don't allow things like loops and conditionals to return a value. In Ruby almost everything returns a value, therefore almost everything in Ruby can be considered an expression.
+  
+***Operator :***
+  > A symbol used in an expression that performs an operation on one or more values. These values are genreally known as _operands_.
+  > _Example:_ `a && (b * 10)` </br>
+  > Where `a` and `(b * 10)` are operands to the operator, `&&`. </br>
+  > And `b` and `10` are operands to the operator, `*`.
+
+***Operand :***
+  > A value being operated on by an operator. </br>
+  > _Example:_ `(a + b) > 100` </br>
+  > Where `(a + b)` and `100` are operands to the operator `>`.
+  > And `a` and `b` are operands to the operator, `+`.
+
+<br>
+
+---------------------------------------------------------------------------------------------------------
+
+> In an expression that nests multiple other expressions, how do we decide what expressions are evaluated first? </br>
+> _Let's start with an example:_
+>```ruby
+>3 + 7 * 10 #=> 73
+>```
+> Why does the code example above return `73` and not `100`? </br>
+> Why doesn't it evaluate like this: `3 + 7 = 10` and then `10 * 10 = 100`? </br>
+> The code above evaluates `7 * 10` first which equals `70` and then it evaluates `3 + 70`. </br>
+> <br>
+> Just like we have order of operations in mathematics, we have order of operations (precedence) in programming. </br>
+> <br>
+> _So what about this? :_
+>```ruby
+> true || false && 10 && "hello" || 7.5 #=> true
+>```
+> The above example returns `true`. Why? </br>
+> How is this evaluated? </br>
+> Well, if we just did this left to right, in sequence of each operator and it's operands, it might look something like this:
+> _(We'll do each operator-operand combo from left to right)_
+>```ruby
+> # 1st step:
+> true && 10 && 'hello' || 7.5
+>```
+>```ruby
+> # 2nd step:
+> 10 && 'hello' || 7.5
+>```
+>```ruby
+> # 3rd step:
+> 'hello' || 7.5
+>```
+>```ruby
+> # 4th step:
+> 'hello'
+>```
+> <br>
+> So why does the expression evaluate to `true`, even though going in sequence from left to right gives us `'hello'`? </br>
+> Well, it's because the `&&` operator holds a higher precedence than the `||` operator. </br>
+> This is much like how `*` holds higher precedence than the `+` in our first example. </br> 
+> <br>
+> So let's break down the last example step by step, this time performing the `&&` operations with their operands before the `||` operators : </br>
+
+>```ruby
+> # The original example expression:
+>true || false && 10 && "hello" || 7.5 #=> true
+>```
+>```ruby
+> # 1st step:
+>true || false && "hello" || 7.5
+>```
+>```ruby
+> # 2nd step:
+>true || false && "hello" || 7.5
+>```
+>```ruby
+> # 3rd step:
+>true || false || 7.5
+>```
+>```ruby
+> # 4th step:
+>true || 7.5
+>```
+>```ruby
+> # last step:
+>true
+>```
+> This is how operator precedence works... _sort of..._ </br>
+> <br>
+> Operator precedence may seem straight forward, it may be simple to say that operator precedence is mostly evaluating operators in a specific order, but it gets more complex than that. </br>
+> Let's consider this code: 
+>```ruby
+> def letter_count(str)
+>   puts str.size
+>   str.size
+> end  
+> 
+> puts letter_count('a') + letter_count('hi') * letter_count('heyo')
+>```
+> Why is that we get an output of:
+> ```
+> 1
+> 2
+> 5
+> 11
+>```
+> With the first 3 results displaying 1, 2, and 5 you would assume that Ruby was evaluating everything from left to right. </br>
+> But if that was the case, then why didn't `letter_counter('hi') * letter_count('heyo)` get evaluated first? </br>
+> <br>
+> This is where it becomes more than ***just*** precedence in Ruby. It involves left to right and right to left operations as well. </br>
+> <br>
+> In our example, Ruby can't possibly multiply `letter_counter('hi')` by `letter_count('heyo)`, because they are 2 methods, not something you can simply perform an arithmetic operation on. <br/>
+><br>
+> So Ruby has to first evaluate these methods before it can make these arithmetic operations happen. </br>
+> Ruby tries to evaluate as much of an expression from left to right without having to invoke any operators, and then performs the operations. </br>
+> So there's that!
+> <br>
+> <br>
+> But now it get's weird with `=`. </br>
+> Now we're working from right to left... </br>
+> <br>
+> _For example:_
+>```ruby
+> a = b = c = 10
+> p a #=> 10
+>```
+> How is `a` equal to `10` if it evaluates from left to right? </br>
+> If left to right was the case here, `a = b` would just point to an empty value. </br>
+> <br>
+> With `=` we evaluate from the right first. So we'd start at `10` and evaluate `c = 10` and then `b = c` and so on. </br>
+> <br>
+> _This is also the same with modifiers:_
+>```ruby
+>a = 5
+>b = 10
+>c = 10
+>
+> a = 15 if b == 10 if c == 10
+> 
+> p a #=> 15
+>```
+> This is pretty gross and not something you would do anyways, so we don't really need to discuss these any further 😅
+> <br>
+> Ternary Operators also can throw a wrench in things too:
