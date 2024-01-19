@@ -1,0 +1,103 @@
+# Precedence In Ruby - Is Not So Simple
+
+After 1.5 years of coding and building a couple calculator apps, an etch-a-sketch app, command line programs, rock paper scissors, studying my head off and creating some other small applications; all from scratch. I only just found out the full depth of the concept of precedence. </br>
+<br>
+You'll often hear:</br>
+_"Precendence is the order in which expressions get evaluated."_ </br>
+<br>
+While this is sort of true, it gets more complicated than that. </br>
+Even some seasoned Ruby devs who have built decent sized programs still don't fully understand precedence... </br>
+<br>
+Let's start by a quick review of the basics and slowly ramp up to some more tricky concepts and nuances. And yes, I know what you're thinking "Okay, I'll just skip this part because I totally understand the basics", well stop right there! I recommend reading through this and reviewing this for a couple reasons: </br>
+- Solidifying the fundamentals
+- Giving you more full context to the nuances I'm about to explain 
+<br>
+
+## What You're First Taught About Precedence:
+Often times we are taught this concept of precedence using a similar statement to the one in the beginning of this article:
+> _"Precendence is the order in which expressions get evaluated."_ </br>
+<br>
+
+Let's expand on that... </br>
+_Take this example:_
+```ruby
+5 + 2 * 10 #=> 25
+```
+Why is it that we get `25` and not `70`? I mean, in this expression we could start by adding `5 + 2` which is `7` and then doing `* 10` to get `70`. What rules are there that state we first have to do `2 * 10` and then do `5 + 20`? Why? </br>
+<br>
+To get clear on things, let's first define some basic terms: </br> 
+<br>
+
+***Expression***
+> "Is any code that can be evaluated down to a single value."
+
+***Operand*** 
+> "A value in an _expression_ that will be used in an operation, determined by an _operator_" </br>
+> For the expression `a + b`, `a` and `b` are the operands to the operator `+`.
+
+***Operator***
+> "A symbol or syntax that uses 1 or more _operands_ and performs an operation on them to return a final value." </br>
+> For the expression `a + b`, the `+` is the operator that will perform addition on the operands `a` and `b`.
+
+<br>
+
+Almost everything in Ruby can be considered an _expression_. </br> 
+<br>
+
+This is because almost everything in Ruby returns a value... </br> 
+A method call returns a value, referencing array indexes will return a value and even variables will return a value... </br>
+<br>
+
+Within expressions we can have other nested-expressions. </br> 
+In other words, we can have a large expression, but within that large expression we can have multiple other expressions that return values and are then operands to other adjacent operators. Expressions can be as simple as a single variable like `a` (because it's a variable and will return a value) or as complex as `(true && false) || 10 || nil && (100 * 47) || (10 + 2 / 12)` (a little crazy, but you get the point). </br>
+<br>
+
+This also means that operands can be expressions themselves. For example, within the expression `(1 + 2) * (3 - 1)`, the nested-expressions `(1 + 2)` and `(3 - 1)` are operands to the operator `*`. When evaluated they return values, but are also being operated on by the operator `*`, that will then return another value. </br>
+Overall, the expression `(1 + 2) * (3 - 1)` will be evaluated to `6`. </br>
+<br>
+
+Generally, most operators must take 2 operands (binary operators). </br>
+But, there are operators that take only 1 operand (unary operators). </br>
+There's even one operator that takes 3 (known as the ternary operator). </br>
+<br>
+
+Examples:
+```ruby
+  10 / 2               # Binary: `10` and `2` are operands
+  !true                # Unary : `true` is the operand
+  value ? true : false # Ternary:`value`, `true` and `false` are operands 
+```
+<br>
+
+---
+
+### Operator Precedence 
+_Operator Precedence_:
+> "Operator Precedence is a set of rules that determine what operands an operator uses first." </br>
+<br>
+
+Here's an example to illustrate: 
+```ruby
+1 + 2 * 5 # => 11
+```
+With 2 binary operators, each needing to take 2 operands, how come we only have 3 operands to go around? </br>
+How is the `+` operator going to share `2` with the `*` operator?? </br>
+<br>
+
+Using operator precedence, Ruby can decide which operators operate with first. In the case of the example above, Ruby would do `2 * 5` first, this is because `*` holds higher _precedence_ than `+`. </br>
+If we could go step-by-step through the evaluation of the expression, after the first operation we now have this: 
+```ruby
+1 + 10
+```
+And now `+` operates on `1` and `7` to return `11`. </br>
+<br>
+
+Let's say we wanted to prioritize `1 + 2` and make Ruby evaluate this part first? Well, we can make it do that by adding brackets around expressions, as bracketed expressions hold nearly the highest precedence. 
+```ruby
+# Starting Expression:
+(1 + 2) * 5 
+```
+```ruby
+# Next Operation:
+3 * 5 # => 15
+```
