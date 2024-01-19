@@ -4,16 +4,18 @@ After 1.5 years of coding and building a couple calculator apps, an etch-a-sketc
 <br>
 You'll often hear:</br>
 _"Precendence is the order in which expressions get evaluated."_ </br>
+
 <br>
 While this is sort of true, it gets more complicated than that. </br>
 Even some seasoned Ruby devs who have built decent sized programs still don't fully understand precedence... </br>
 <br>
-Let's start by a quick review of the basics and slowly ramp up to some more tricky concepts and nuances. And yes, I know what you're thinking "Okay, I'll just skip this part because I totally understand the basics", well stop right there! I recommend reading through this and reviewing this for a couple reasons: </br>
-- Solidifying the fundamentals
-- Giving you more full context to the nuances I'm about to explain 
+Let's start by a quick review of the basics and slowly ramp up to some more tricky concepts and nuances. And yes, I know what a lot of you Rubyists and devs are thinking: "Okay, I'll just skip this part because I totally understand the basics" - hold your horses partner! </br>
+I recommend reading through this and reviewing this for a couple reasons: </br>
+- Help solidifying and re-validate the fundamentals you've already learned
+- Reading this will give you a more full context to the nuances I'm about to explain 
 <br>
 
-## What You're First Taught About Precedence:
+## A Quick Primer
 Often times we are taught this concept of precedence using a similar statement to the one in the beginning of this article:
 > _"Precendence is the order in which expressions get evaluated."_ </br>
 <br>
@@ -31,6 +33,9 @@ To get clear on things, let's first define some basic terms: </br>
 ***Expression***
 > "Is any code that can be evaluated down to a single value."
 
+***Evaluate***
+> "To return a value from an expression."
+
 ***Operand*** 
 > "A value in an _expression_ that will be used in an operation, determined by an _operator_" </br>
 > For the expression `a + b`, `a` and `b` are the operands to the operator `+`.
@@ -39,9 +44,11 @@ To get clear on things, let's first define some basic terms: </br>
 > "A symbol or syntax that uses 1 or more _operands_ and performs an operation on them to return a final value." </br>
 > For the expression `a + b`, the `+` is the operator that will perform addition on the operands `a` and `b`.
 
+And if you're ever unclear or confused while, refer back to the definitions above.
+<br>
 <br>
 
-Almost everything in Ruby can be considered an _expression_. </br> 
+**Almost everything in Ruby can be considered an _expression_.** </br> 
 <br>
 
 This is because almost everything in Ruby returns a value... </br> 
@@ -71,9 +78,9 @@ Examples:
 
 ---
 
-### Operator Precedence 
+## What You're First Taught with Operator Precedence 
 _Operator Precedence_:
-> "Operator Precedence is a set of rules that determine what operands an operator uses first." </br>
+> "Operator Precedence is a set of rules that determine what operands an operator uses first." 
 <br>
 
 Here's an example to illustrate: 
@@ -101,3 +108,77 @@ Let's say we wanted to prioritize `1 + 2` and make Ruby evaluate this part first
 # Next Operation:
 3 * 5 # => 15
 ```
+<br>
+
+To really knock this one out of the park let's do one more example and step through each operation, step-by-step</br>
+Here's our last example:
+```ruby
+10 && 20 + 5 * 2 || 100
+```
+**1st operation:**
+```ruby
+# `*` holds highest precedence, `5 * 2` is operated on first
+# `10` is returned from `5 * 2`
+10 && 20 + 10 || 100
+```
+**2nd operation:**
+```ruby
+# `+` holds next highest precedence, `20 + 10` is operated on next
+# `30` is returned from `20 + 10`
+10 && 30 || 100
+```
+**3rd operation:**
+```ruby
+# `&&` holds next highest precedence, `10 && 30` is operated on next
+# `30` is returned from `10 && 30`
+30 || 100
+```
+**Last operation:**
+```ruby
+# `||` holds next highest precedence, `30 || 100` is operated on next
+# `30` is returned from `30 || 100`
+30
+``` 
+<br>
+
+## It's Not Just Precedence, But Also _Order Of Evaluation_
+_"Order of evaluation"_ ahaa, this might sound different... (at least for me it did) </br>
+<br>
+
+Let's consider:
+```ruby
+def letter_count(str)
+  puts str.size
+  return str.size
+end  
+
+puts letter_count('a') + letter_count('heyo') / letter_count('hi')
+```
+Now what do you think this code will output? </br>
+Take a guess. </br>
+<br>
+If you guessed:
+```
+1
+4
+2
+3
+```
+You're correct! </br>
+<br>
+
+Why didn't our program evaluate the `/` first? I mean, it holds the highest precdence... right? </br>
+It looks like Ruby just evaluated our final line of code from left to right. </br>
+<br>
+
+Yes `/` holds highest operator precdence in this example, but these operators on the final line need values to operate on. </br> 
+Method invocations are not values. So we first have to evaluate them. Ruby tries to evaluate an expression and suss-out any undetermined values from left to right before 'invoking' the operators. </br>
+<br>
+
+In this case it runs each method 1 after the other, resulting in the first 3 values being outputted in our terminal.</br> 
+The values returned from the methods are the operands that can now be operated on by the operators. </br>
+<br>
+
+So, for our example's final expression, we evaluated from left to right invoking methods and then we went by operator precdedence to get values from the operators and their operands. </br>
+<br>
+
