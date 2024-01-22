@@ -54,8 +54,10 @@ This is actually an okay way to teach beginners about variables. We're abstracti
 
 But it's not quite accurate, and won't benefit you in the longer run.
 
+
 At this stage variables might be seen as a _"container"_ holding a value, like this:
 
-![Image of a variable being represented as a 'container']('images/variables_as_containers.jpg')
+<img alt="Image of a variable being represented as a container" src="/Users/jacksebben/LaunchSchool/RB109/images/variables_as_containers.jpg">
+
 
 You reference a variable-container and it gives you the value it holds.

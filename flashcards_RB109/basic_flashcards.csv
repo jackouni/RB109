@@ -1,2 +1,4 @@
 'hello' == true ; false 
 nil == false ; false
+`array.map do ... end` returns what? ; Returns the enumerator object for the Array#map method.
+`array.map { ... }` returns what? ; Returns an array of the results from each iteration of `array`.
